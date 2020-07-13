@@ -19,7 +19,6 @@ export const loadUser = () => (dispatch, getState) => {
 }
 
 export const logout = () => (dispatch, getState) => {
-    console.log("Test");
     axios.post('http://localhost:1812/auth/logout')
     .then((res)=>{
         dispatch({
