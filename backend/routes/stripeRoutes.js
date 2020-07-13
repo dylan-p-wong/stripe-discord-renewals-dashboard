@@ -4,6 +4,7 @@ const License = require('../models/license');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {maxNetworkRetries: 2});
 const { v4: uuidv4 } = require('uuid');
 const { removeRole } = require('../discordClient');
+const config = require('../config.json');
 
 router.route('/purchase').post(async (req,res)=> {
     const discordID = req.body.discordID;
@@ -24,7 +25,7 @@ router.route('/purchase').post(async (req,res)=> {
         customer: customer.id,
         items: [
           {
-            plan: "plan_HDhenwqwpPV5Dp", // add to config
+            plan: config.stripe.planID, 
           },
         ],
         expand: ['latest_invoice.payment_intent'],

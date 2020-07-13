@@ -1,9 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const License = require('./models/license');
-const serverID = "560600001059880991"; // add to config
-const roleID = "584952716799901705"; // add to config
-const prefix = "?";
+const config = require('./config.json');
+const serverID = config.discord.serverID; 
+const roleID = config.discord.roleID; 
+const prefix = config.discord.prefix;
 
 const initClient = () => {
     client.login(process.env.DISCORD_TOKEN);
@@ -12,7 +13,6 @@ const initClient = () => {
     });
 }
 
-// via private DM
 client.on('message', async (message) => {
     if (message.content.startsWith(`${prefix}activate`)) {
         const key = message.content.split(' ')[1];

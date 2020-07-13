@@ -1,0 +1,10 @@
+{
+    "stripe": {
+        "planID": "plan_HDhenwqwpPV5Dp"
+    },
+    "discord": {
+        "serverID": "560600001059880991",
+        "roleID": "584952716799901705",
+        "prefix": "?"
+    }
+}
