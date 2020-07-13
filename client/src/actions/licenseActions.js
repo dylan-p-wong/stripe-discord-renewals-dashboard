@@ -1,5 +1,6 @@
 import {LICIENSES_LOADING, LICIENSES_LOADED, FLASH_MESSAGE} from './types';
 import axios from 'axios';
+import {flashMessage} from './messageActions';
 
 export const loadLicenses = (discordID) => (dispatch, getState) => {
     dispatch({type: LICIENSES_LOADING});
@@ -15,6 +16,6 @@ export const loadLicenses = (discordID) => (dispatch, getState) => {
         });
     })
     .catch((err)=>{
-        // error handler
+        dispatch(flashMessage(err.msg, err.status));
     })
 }

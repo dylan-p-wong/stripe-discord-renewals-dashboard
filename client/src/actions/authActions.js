@@ -14,7 +14,7 @@ export const loadUser = () => (dispatch, getState) => {
         })
     })
     .catch((err)=>{
-        // error handler
+        dispatch(flashMessage(err.msg, err.status));
     })
 }
 
@@ -27,6 +27,6 @@ export const logout = () => (dispatch, getState) => {
         dispatch(flashMessage(res.data.msg, res.status));
     })
     .catch((err)=>{
-        // error handler
+        dispatch(flashMessage(err.msg, err.status));
     })
 }
