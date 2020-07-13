@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main {
+  position: absolute;
+  margin-top: 90px;
+  margin-left: auto;
+  text-align: center;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 50%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(124, 153, 153);
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: rgb(75, 29, 105);
+  position: fixed;
+  height: 70px;
+  width: 100%;
+  z-index: 800;
+}
+
+.navbar a {
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  color: rgb(204, 191, 174);
+  padding: 20px;
+}
+
+.card {
+  background-color: red;
+  padding: 100px;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.form {
+  padding: 30px;
+  border-radius: 15px;
+  background-color: aqua;
+}
+
+.form button {
+  padding: 5px 10px;
+  background-color: rgb(214, 189, 238);
+  border-radius: 25px;
+}
+
+.form .StripeElement {
+  padding: 15px 15px;
+  background-color: rgb(214, 189, 238);
+  border-radius: 25px;
+  margin: 3px;
+}
+
+.license {
+  border-style: solid;
+  border-width: thin;
+  padding: 40px;
+}
+
+.flash {
+  position: fixed;
+  z-index: 889;
+  right: 20px;
+  bottom: 20px;
+  background-color: blueviolet;
+  padding: 20px 40px;
+  border-radius: 15px;
+}
+
+.flash button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 15px;
+  padding: 2px 4px;
+  background-color: brown;
+}
+
+
+
