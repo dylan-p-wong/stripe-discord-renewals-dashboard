@@ -5,15 +5,31 @@ import { connect } from 'react-redux';
 
 class NavBar extends Component {
     render() {
+        const loggedInLinks = (
+            <div>
+                <Link to="/" style={{float: "left"}}>Home</Link>
+                <a onClick={this.props.logout} style={{float: "right", cursor: "pointer"}}>Logout</a>
+                <Link to="/dashboard" style={{float: "right"}}>Dashboard</Link>
+            </div>
+        )
+
+        const otherLinks = (
+            <div>
+                <Link to="/" style={{float: "left"}}>Home</Link>
+                <a href="http://localhost:1812/auth/login" style={{float: "right"}}>Login</a>
+            </div>
+        )
+
         return (
             <div className="navbar">
-                <Link to="/" style={{float: "left"}}>Home</Link>
-                <a onClick={this.props.logout} style={{float: "right"}}>Logout</a>
-                <a href="http://localhost:1812/auth/login" style={{float: "right"}}>Login</a>
-                <Link to="/dashboard" style={{float: "right"}}>Dashboard</Link>
+                {this.props.isAuthenticated ? loggedInLinks : otherLinks}
             </div>
         );
     }
 }
 
-export default connect(null, {logout})(NavBar);
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, {logout})(NavBar);

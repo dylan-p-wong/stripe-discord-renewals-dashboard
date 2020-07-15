@@ -22,7 +22,7 @@ class UserDashboard extends Component {
     }
 
     render() {
-        if (!this.props.user ||  this.props.userLoading) return <ReactLoading type={"balls"} color={"white"} height={'20%'} width={'20%'} />;
+        if (!this.props.user ||  this.props.userLoading) return (<ReactLoading type={"spinningBubbles"} color={"white"} height={'20%'} width={'20%'} className="loading"/>);
 
         return (
             <div className="card">

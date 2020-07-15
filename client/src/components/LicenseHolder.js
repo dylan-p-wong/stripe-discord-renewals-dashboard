@@ -10,7 +10,7 @@ class LicenseHolder extends Component {
     }
 
     render() {
-        if (!this.props.licenses) return <ReactLoading type={"balls"} color={"white"} height={'20%'} width={'20%'} />;
+        if (!this.props.licenses) return <ReactLoading type={"spinningBubbles"} color={"white"} height={'20%'} width={'20%'} className="loading"/>;
 
         const licenses = this.props.licenses.map((item) => {
             return <License key={item._id} license={item}></License>
