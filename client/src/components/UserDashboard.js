@@ -6,6 +6,7 @@ import LicenseHolder from './LicenseHolder';
 import InjectCheckoutFrom from './InjectedCheckoutForm';
 import FlashMessage from './FlashMessage';
 import ReactLoading from 'react-loading';
+import { Redirect } from "react-router-dom";
 
 class UserDashboard extends Component {
     constructor(props) {
@@ -18,11 +19,10 @@ class UserDashboard extends Component {
 
     async componentDidMount(){
         await this.props.loadUser();
-        
     }
 
     render() {
-        if (!this.props.user ||  this.props.userLoading) return (<ReactLoading type={"spinningBubbles"} color={"white"} height={'20%'} width={'20%'} className="loading"/>);
+        if (!this.props.user ||  this.props.userLoading) return <ReactLoading type={"spinningBubbles"} color={"white"} height={'20%'} width={'20%'} className="loading"/>;
 
         return (
             <div className="card">
