@@ -38,7 +38,7 @@ router.route('/purchase').post(async (req,res)=> {
             key: uuidv4(),
             discordID: discordID,
             status: {
-                binded: true,
+                cancel_period_end: false,
                 activated: false 
             },
             paymentInfo: {
@@ -63,10 +63,6 @@ router.route('/purchase').post(async (req,res)=> {
     }
 });
 
-router.route('/update').post(async (req,res)=> {
-    
-});
-
 router.route('/cancel').post(async (req,res)=> {
     const license = req.body.key;
 
@@ -79,6 +75,7 @@ router.route('/cancel').post(async (req,res)=> {
     const cancel = await stripe.subscriptions.update(key.paymentInfo.subscriptionID, {cancel_at_period_end: true});
 
     if (cancel.cancel_at_period_end == true){
+        await key.updateOne({status: {cancel_period_end: true, activated: key.status.activated}});
         res.status(200).json({msg: "Successfully cancelled"});
     } else {
         res.status(400).json({msg: "Error contact support"});
@@ -96,7 +93,7 @@ router.route('/webhook').post(async (req,res)=> {
             const period_start = sub.current_period_start;
             const period_end = sub.current_period_end;
 
-            const foundLicense = await License.findOneAndUpdate({'paymentInfo.subscriptionID': subID}, {'paymentInfo.dates.period_start': period_start, 'paymentInfo.dates.period_end': period_end});
+            await License.findOneAndUpdate({'paymentInfo.subscriptionID': subID}, {'paymentInfo.dates.period_start': period_start, 'paymentInfo.dates.period_end': period_end});
             break;
         }
         case 'customer.subscription.deleted': { // Remove from discord

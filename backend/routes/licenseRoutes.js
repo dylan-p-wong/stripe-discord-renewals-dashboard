@@ -15,12 +15,6 @@ router.route('/').get(async (req,res)=> {
     res.status(200).json(results);
 });
 
-router.route('/unbind').post(async (req,res)=> {
-    const discordID = req.body.discordID;
-
-    
-});
-
 router.route('/deactivate').post(async (req,res)=> {
     const key = req.body.key;
     const license = await License.findOne({key: key});

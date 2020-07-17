@@ -11,7 +11,7 @@ const LicenseSchema = new Schema({
         required: true
     },
     status: {
-        binded: {
+        cancel_period_end: {
             type: Boolean,
             required: true
         },

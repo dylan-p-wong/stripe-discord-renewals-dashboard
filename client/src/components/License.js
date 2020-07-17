@@ -12,7 +12,7 @@ class License extends Component {
         return (
             <div className="license">
                 <p>{this.props.license.key}</p>
-                <p>Binded: {this.props.license.status.binded ? "true" : "false"}</p>
+                <p>Cancel at Period End: {this.props.license.status.cancel_period_end ? "true" : "false"}</p>
                 <p>Activated: {this.props.license.status.activated ? "true" : "false"}</p>
                 <br/>
                 <p>Payment Info</p>

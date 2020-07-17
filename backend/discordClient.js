@@ -35,7 +35,7 @@ client.on('message', async (message) => {
             return;
         }
 
-        if (foundKey.discordID !== authorID || foundKey.status.binded == false){
+        if (foundKey.discordID !== authorID){
             message.channel.send("Unauthorized");
             return;
         }
@@ -45,7 +45,7 @@ client.on('message', async (message) => {
             return;
         }
 
-        await foundKey.updateOne({status: {activated: true, binded: true}}, (err, result)=>{
+        await foundKey.updateOne({status: {activated: true, cancel_period_end: foundKey.status.cancel_period_end}}, (err, result)=>{
             if (err){
                 message.channel.send("Error");
             } else {

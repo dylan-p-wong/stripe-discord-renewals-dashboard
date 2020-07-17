@@ -6,19 +6,21 @@ import LicenseHolder from './LicenseHolder';
 import InjectCheckoutFrom from './InjectedCheckoutForm';
 import FlashMessage from './FlashMessage';
 import ReactLoading from 'react-loading';
-import { Redirect } from "react-router-dom";
 
 class UserDashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            paymentHidden : true,
-            bindHidden: true
+            paymentHidden : true
         }
     }
 
     async componentDidMount(){
         await this.props.loadUser();
+    }
+
+    onClick = () => {
+        this.setState({paymentHidden: !this.state.paymentHidden});
     }
 
     render() {
@@ -31,7 +33,13 @@ class UserDashboard extends Component {
                 <p>{this.props.user.email}</p>
                 <a href="https://discord.gg/bB5JyWJ" target="_blank">Join Discord</a> 
                 <br/>
-                <InjectCheckoutFrom stripe={this.props.stripe} user={this.props.user}/>
+
+                {this.state.paymentHidden ? <button onClick={this.onClick}>Purchase License</button>: (
+                    <div>
+                        <button onClick={this.onClick}>Hide</button>
+                        <InjectCheckoutFrom stripe={this.props.stripe} user={this.props.user}/>
+                    </div>
+                )}
                 <LicenseHolder discordID={this.props.user.id}/>
             </div>
         );
