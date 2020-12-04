@@ -3,6 +3,7 @@ import axios from 'axios';
 import {flashMessage} from './messageActions';
 
 export const loadLicenses = (discordID) => (dispatch, getState) => {
+    console.log("test");
     dispatch({type: LICIENSES_LOADING});
     axios.get('http://localhost:1812/license', {
         params: {

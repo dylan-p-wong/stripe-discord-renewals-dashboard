@@ -49,7 +49,10 @@ client.on('message', async (message) => {
             if (err){
                 message.channel.send("Error");
             } else {
-                client.guilds.cache.get(serverID).members.cache.get(authorID).roles.add(roleID);
+                client.guilds.cache.get(serverID).members.fetch(authorID).then((r)=>{
+                    r.roles.add(roleID);
+                });
+                
                 message.channel.send(`${foundKey.key} Activated`);
             }
         });
