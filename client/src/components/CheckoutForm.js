@@ -31,8 +31,12 @@ class CheckoutForm extends Component {
     render() {
         return (
             <form className="form" onSubmit={this.handleSubmit}>
-                <CardElement/>
-                <button type="submit" disabled={this.props.processing}>Pay</button>
+                {this.props.processing ? "Processing...": 
+                <div>
+                    <CardElement/>
+                    <button type="submit" disabled={this.props.processing}>Pay</button>
+                </div>
+                }
             </form>
         );
     }

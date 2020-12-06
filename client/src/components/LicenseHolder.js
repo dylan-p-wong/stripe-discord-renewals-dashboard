@@ -10,8 +10,12 @@ class LicenseHolder extends Component {
     }
 
     render() {
-        console.log(this.props);
-        if (!this.props.licenses) return <ReactLoading type={"spinningBubbles"} color={"white"} height={'20%'} width={'20%'} className="loading"/>;
+        if (!this.props.licenses) return (
+            <div>
+                <h1>Licenses</h1>
+                <ReactLoading type={"spinningBubbles"} color={"white"} height={'20%'} width={'20%'} className="loading"/>
+            </div>
+        )
 
         const licenses = this.props.licenses.map((item) => {
             return <License key={item._id} license={item}></License>
@@ -20,7 +24,7 @@ class LicenseHolder extends Component {
         return (
             <div>
                 <h1>Licenses</h1>
-                <p>{licenses}</p>
+                {this.props.licenses.length === 0 ? "You have no licenses!": <p>{licenses}</p>}
             </div>
         );
     }

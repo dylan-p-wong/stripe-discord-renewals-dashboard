@@ -21,6 +21,16 @@ html {
   scroll-behavior: smooth;
 }
 
+.join-discord {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  background-color: rgb(116, 127, 224);
+  padding: 10px;
+  border-radius: 20px;
+  border-color: white;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,35 +55,54 @@ body {
 }
 
 .card {
-  background-color: red;
+  background-color: rgb(225, 182, 250);
   padding: 100px;
   text-align: center;
   border-radius: 25px;
+  margin-bottom: 40px;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 
 .form {
+  margin-top: 40px;
   padding: 30px;
   border-radius: 15px;
-  background-color: aqua;
+  background-color: rgb(182, 155, 247);
+  width: 600px;
+  height: 100px;
+  display: inline-block;
 }
 
-.form button {
+button {
   padding: 5px 10px;
-  background-color: rgb(214, 189, 238);
-  border-radius: 25px;
+  margin: 20px;
+  background-color: rgb(203, 180, 216);
+  border-radius: 20px;
+  border-color: black;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 
 .form .StripeElement {
   padding: 15px 15px;
-  background-color: rgb(214, 189, 238);
+  background-color: rgb(255, 255, 255);
   border-radius: 25px;
   margin: 3px;
 }
 
 .license {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background-color: rgb(225, 182, 250);
   border-style: solid;
   border-width: thin;
   padding: 40px;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+
+.license .license-key {
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 .flash {
@@ -82,7 +111,7 @@ body {
   right: 20px;
   bottom: 20px;
   background-color: blueviolet;
-  padding: 20px 40px;
+  padding: 30px 60px;
   border-radius: 15px;
 }
 
@@ -90,8 +119,8 @@ body {
   position: absolute;
   top: 5px;
   right: 5px;
-  border-radius: 15px;
-  padding: 2px 4px;
+  border-radius: 10px;
+  padding: 2px 2px;
   background-color: brown;
 }
 

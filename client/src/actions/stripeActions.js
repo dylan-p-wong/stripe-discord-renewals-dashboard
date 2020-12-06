@@ -1,6 +1,7 @@
 import { PAYMENT_PROCESSING, PAYMENT_SUCCESS, PAYMENT_FAIL, PAYMENT_UPDATING, PAYMENT_UPDATE_FAILED, PAYMENT_UPDATED, PAYMENT_CANCELING, PAYMENT_CANCELING_FAILED, PAYMENT_CANCELED } from './types';
 import axios from 'axios';
 import {flashMessage} from './messageActions';
+import { loadLicenses } from './licenseActions';
 
 export const purchase = (paymentID, discordID, email) => (dispatch, getState) => {
     dispatch({type: PAYMENT_PROCESSING});
@@ -14,6 +15,7 @@ export const purchase = (paymentID, discordID, email) => (dispatch, getState) =>
             type: PAYMENT_SUCCESS,
             payload: res.data
         });
+        dispatch(loadLicenses(discordID));
         dispatch(flashMessage(res.data.msg, res.status));
     })
     .catch((err)=>{

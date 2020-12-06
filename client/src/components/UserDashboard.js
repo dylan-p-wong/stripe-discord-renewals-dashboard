@@ -8,40 +8,29 @@ import FlashMessage from './FlashMessage';
 import ReactLoading from 'react-loading';
 
 class UserDashboard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            paymentHidden : true
-        }
-    }
 
     async componentDidMount(){
         await this.props.loadUser();
     }
 
-    onClick = () => {
-        this.setState({paymentHidden: !this.state.paymentHidden});
-    }
-
     render() {
-        if (!this.props.user ||  this.props.userLoading) return <ReactLoading type={"spinningBubbles"} color={"white"} height={'20%'} width={'20%'} className="loading"/>;
+        if (!this.props.user ||  this.props.userLoading) return null;
 
         return (
+        <div>
             <div className="card">
                 <FlashMessage/>
                 <h1>Welcome {this.props.user.username}#{this.props.user.discriminator}</h1>
                 <p>{this.props.user.email}</p>
-                <a href="https://discord.gg/bB5JyWJ" target="_blank">Join Discord</a> 
+                <br></br>
+                <a className="join-discord" href="https://discord.gg/bB5JyWJ" target="_blank">Join Discord</a> 
                 <br/>
-
-                {this.state.paymentHidden ? <button onClick={this.onClick}>Purchase License</button>: (
-                    <div>
-                        <button onClick={this.onClick}>Hide</button>
-                        <InjectCheckoutFrom stripe={this.props.stripe} user={this.props.user}/>
-                    </div>
-                )}
-                <LicenseHolder discordID={this.props.user.id}/>
+                <div>
+                    <InjectCheckoutFrom stripe={this.props.stripe} user={this.props.user}/>
+                </div>
             </div>
+            <LicenseHolder discordID={this.props.user.id}/>
+        </div>
         );
     }
 }
@@ -50,6 +39,7 @@ const mapStateToProps = (state) => ({
     user:state.auth.user,
     userLoading: state.auth.isLoading,
     licenseLoading: state.license.isLoading,
+    processing: state.stripe.isLoading
 });
 
 export default connect(mapStateToProps, { loadUser, loadLicenses })(UserDashboard);
