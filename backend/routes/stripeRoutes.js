@@ -97,13 +97,17 @@ router.route('/webhook').post(async (req,res)=> {
             break;
         }
         case 'customer.subscription.deleted': { // Remove from discord
-            const subID = req.body.data.object.subscription;
+            const subID = req.body.data.object.id;
             const foundLicense = await License.findOne({'paymentInfo.subscriptionID': subID});
-            removeRole(foundLicense.discordID);
+            
+            if (foundLicense) removeRole(foundLicense.discordID);
             break;
         }
         case 'customer.subscription.updated' : {
-            //console.log(req.body);
+            const subID = req.body.data.object.id;
+
+            await License.findOneAndUpdate({'paymentInfo.subscriptionID': subID}, {'paymentInfo.customer': req.body.data.object.customer});
+
             break;
         }
     }
