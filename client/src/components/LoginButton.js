@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import configData from '../config.json';
 
 class LoginButton extends Component {
     render() {
         return (
             <div>
-                <a href="http://localhost:1812/auth/login">Login</a>
+                <a href={configData.LOGIN_LINK}>Login</a>
             </div>
         );
     }

@@ -6,6 +6,7 @@ import LicenseHolder from './LicenseHolder';
 import InjectCheckoutFrom from './InjectedCheckoutForm';
 import FlashMessage from './FlashMessage';
 import ReactLoading from 'react-loading';
+import configData from '../config.json';
 
 class UserDashboard extends Component {
 
@@ -23,7 +24,7 @@ class UserDashboard extends Component {
                 <h1>Welcome {this.props.user.username}#{this.props.user.discriminator}</h1>
                 <p>{this.props.user.email}</p>
                 <br></br>
-                <a className="join-discord" href="https://discord.gg/bB5JyWJ" target="_blank">Join Discord</a> 
+                <a className="join-discord" href={configData.SERVER_JOIN_LINK} target="_blank">Join Discord</a> 
                 <br/>
                 <div>
                     <InjectCheckoutFrom stripe={this.props.stripe} user={this.props.user}/>

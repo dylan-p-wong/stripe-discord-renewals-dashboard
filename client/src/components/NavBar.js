@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 import { logout } from '../actions/authActions';
 import { connect } from 'react-redux';
+import configData from '../config.json';
 
 class NavBar extends Component {
     render() {
@@ -16,7 +17,7 @@ class NavBar extends Component {
         const otherLinks = (
             <div>
                 <Link to="/" style={{float: "left"}}>Home</Link>
-                <a href="http://localhost:1812/auth/login" style={{float: "right"}}>Login</a>
+                <a href={configData.LOGIN_LINK} style={{float: "right"}}>Login</a>
             </div>
         )
 
