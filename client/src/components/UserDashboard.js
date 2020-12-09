@@ -20,7 +20,6 @@ class UserDashboard extends Component {
         return (
         <div>
             <div className="card">
-                <FlashMessage/>
                 <h1>Welcome {this.props.user.username}#{this.props.user.discriminator}</h1>
                 <p>{this.props.user.email}</p>
                 <br></br>

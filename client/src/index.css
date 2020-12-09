@@ -7,14 +7,8 @@
 }
 
 .main {
-  position: absolute;
-  margin-top: 90px;
-  margin-left: auto;
+  margin: auto;  
   text-align: center;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  width: 50%;
 }
 
 html {
@@ -55,21 +49,28 @@ body {
 }
 
 .card {
+  display: inline-block;
+  margin: auto;
+  margin-top: 80px;
   background-color: rgb(225, 182, 250);
-  padding: 100px;
+  padding: 40px;
+  width: 80%;
+  max-width: 1100px;
   text-align: center;
   border-radius: 25px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 
 .form {
   margin-top: 40px;
-  padding: 30px;
+  padding: 15px;
   border-radius: 15px;
   background-color: rgb(182, 155, 247);
-  width: 600px;
+  width: 90%;
+  max-width: 900px;
   height: 100px;
+  text-align: center;
   display: inline-block;
 }
 
@@ -90,6 +91,8 @@ button {
 }
 
 .license {
+  width: 60%;
+  margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 20px;
