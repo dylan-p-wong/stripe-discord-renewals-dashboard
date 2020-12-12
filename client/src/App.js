@@ -9,8 +9,9 @@ import UserDashboard from './components/UserDashboard';
 import FlashMessage from './components/FlashMessage';
 import Home from './components/Home';
 import {loadStripe} from '@stripe/stripe-js';
+import config from './config.json';
 
-const stripePromise = loadStripe('pk_test_GpHRH6SW1VzRZWIv6JJXjPjC00k57yMQ5g');
+const stripePromise = loadStripe(config.STRIPE_PUBLIC_KEY);
 
 function App() {
   return (

@@ -23,6 +23,7 @@ export const purchase = (paymentID, discordID, email) => (dispatch, getState) =>
     })
 }
 
+// TODO
 export const update = () => (dispatch, getState) => {
     
 }

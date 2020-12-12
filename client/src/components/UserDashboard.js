@@ -4,8 +4,6 @@ import { loadUser }from '../actions/authActions';
 import { loadLicenses } from'../actions/licenseActions';
 import LicenseHolder from './LicenseHolder';
 import InjectCheckoutFrom from './InjectedCheckoutForm';
-import FlashMessage from './FlashMessage';
-import ReactLoading from 'react-loading';
 import configData from '../config.json';
 
 class UserDashboard extends Component {
