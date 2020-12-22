@@ -1,5 +1,6 @@
 # Stripe + Discord Renewals
-[![Product Name Screen Shot][product-screenshot]](https://ibb.co/G3MX0pN)
+<a href="https://github.com">View Demo</a>
+![Image](https://i.ibb.co/0V9kc2v/dashboard.png)
 ## About
 Allows a server owner to charge members on a subsciption basis using Stripe. Usefel template for paid groups.
 
