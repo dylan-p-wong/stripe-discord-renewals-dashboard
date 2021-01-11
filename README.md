@@ -2,7 +2,7 @@
 <a href="https://vimeo.com/493930824">View Demo Video</a>
 ![Image](https://i.ibb.co/0V9kc2v/dashboard.png)
 ## About
-Allows a server owner to charge members on a subsciption basis using Stripe. Usefel template for paid groups.
+Allows a server owner to charge members on a subsciption basis using Stripe. Useful template for discord server owners who want to monetize.
 
 ## Getting Started
 
@@ -26,40 +26,8 @@ cd ../client
 ```sh
 npm install
 ```
-5. Add ENV Variables
-In a file called ```.env``` in the ```backend``` folder
-```sh
-MONGO_URI=<ENTER YOURS>
-DISCORD_TOKEN=<ENTER YOURS>
-REDIRECT_URI=<ENTER YOURS>
-STRIPE_SECRET_KEY=<ENTER YOURS>
-CLIENT_ID=<ENTER YOURS>
-CLIENT_SECRET=<ENTER YOURS>
-```
-6. Add backend config
-In a file called ```config.json``` in the ```backend``` folder
- ```
- {
-    "stripe": {
-        "planID": 'ENTER YOURS'
-    },
-    "discord": {
-        "serverID": 'ENTER YOURS',
-        "roleID": 'ENTER YOURS',
-        "prefix": '?' // Can Change
-    }
-}
- ```
-7. Add client config
-In a file called ```config.json``` in the ```client/src``` folder
-```
-{
-    "SERVER_JOIN_LINK": 'ENTER YOURS',
-    "LOGIN_LINK": 'ENTER YOURS', // Would be http://localhost:1812/auth/login for development
-    "STRIPE_PUBLIC_KEY": 'ENTER YOURS'
-}
-```
-8. 
+5. Configure config.json in the backend folder and config.json in the client/src folder. Configure environment variables.
+6. 
 In ```backend```
 ```
 npm run dev
