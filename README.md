@@ -7,7 +7,7 @@ Allows a server owner to charge members on a subsciption basis using Stripe. Use
 ## Getting Started
 
 ### Installation
-1. Create a Discord account, create a bot, create a server and obtain information below.
+1. Create a Discord account, create a bot with OAuth2 redirect as ```http://<API DOMAIN>/auth/login/callback```, create a server and obtain information below.
 2. Create a Stripe account, obtains api keys and create a subsciption plan.
 3. Clone the repo
 ```sh
@@ -27,7 +27,8 @@ cd ../client
 npm install
 ```
 5. Configure config.json in the backend folder and config.json in the client/src folder. Configure environment variables.
-6. 
+
+### Running
 In ```backend```
 ```
 npm run dev
