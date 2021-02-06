@@ -2,10 +2,11 @@ import { PAYMENT_PROCESSING, PAYMENT_SUCCESS, PAYMENT_FAIL, PAYMENT_UPDATING, PA
 import axios from 'axios';
 import {flashMessage} from './messageActions';
 import { loadLicenses } from './licenseActions';
+import configData from '../config.json';
 
 export const purchase = (paymentID, discordID, email) => (dispatch, getState) => {
     dispatch({type: PAYMENT_PROCESSING});
-    axios.post('http://localhost:1812/stripe/purchase', {
+    axios.post(configData.BASE_API + '/stripe/purchase', {
         paymentID: paymentID,
         discordID: discordID,
         email: email
@@ -30,7 +31,7 @@ export const update = () => (dispatch, getState) => {
 
 export const cancel = (key) => (dispatch, getState) => {
     dispatch({type: PAYMENT_CANCELING});
-    axios.post('http://localhost:1812/stripe/cancel', {
+    axios.post(configData.BASE_API + '/stripe/cancel', {
         key: key
     })
     .then((res)=>{

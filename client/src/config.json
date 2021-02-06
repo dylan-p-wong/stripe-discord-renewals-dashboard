@@ -1,5 +1,5 @@
 {
     "SERVER_JOIN_LINK": "https://discord.gg/bB5JyWJ",
-    "LOGIN_LINK": "http://localhost:1812/auth/login",
+    "BASE_API": "http://localhost:1812",
     "STRIPE_PUBLIC_KEY": "pk_test_GpHRH6SW1VzRZWIv6JJXjPjC00k57yMQ5g"
 }

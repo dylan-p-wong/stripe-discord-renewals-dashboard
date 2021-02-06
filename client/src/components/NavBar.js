@@ -17,7 +17,7 @@ class NavBar extends Component {
         const otherLinks = (
             <div>
                 <Link to="/" style={{float: "left"}}>Home</Link>
-                <a href={configData.LOGIN_LINK} style={{float: "right"}}>Login</a>
+                <a href={configData.BASE_API + '/auth/login'} style={{float: "right"}}>Login</a>
             </div>
         )
 
